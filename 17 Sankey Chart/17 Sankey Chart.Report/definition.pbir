@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../17 Sankey Chart.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

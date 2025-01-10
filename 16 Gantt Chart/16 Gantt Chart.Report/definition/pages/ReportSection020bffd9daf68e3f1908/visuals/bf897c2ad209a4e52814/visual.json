@@ -1,0 +1,263 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "bf897c2ad209a4e52814",
+  "position": {
+    "x": 0,
+    "y": 13.75,
+    "z": 0,
+    "height": 585,
+    "width": 1036.25
+  },
+  "visual": {
+    "visualType": "Gantt1448688115699",
+    "query": {
+      "queryState": {
+        "Completion": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "hierarchy"
+                        }
+                      },
+                      "Property": "Completion"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(hierarchy.Completion)",
+              "nativeQueryRef": "Sum of Completion"
+            }
+          ]
+        },
+        "EndDate": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "hierarchy"
+                        }
+                      },
+                      "Property": "End"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(hierarchy.End)",
+              "nativeQueryRef": "Earliest End"
+            }
+          ]
+        },
+        "Parent": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hierarchy"
+                    }
+                  },
+                  "Property": "Project"
+                }
+              },
+              "queryRef": "hierarchy.Project",
+              "nativeQueryRef": "Project"
+            }
+          ]
+        },
+        "Resource": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hierarchy"
+                    }
+                  },
+                  "Property": "%% compl"
+                }
+              },
+              "queryRef": "hierarchy.%% compl",
+              "nativeQueryRef": "%% compl"
+            }
+          ]
+        },
+        "StartDate": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hierarchy"
+                    }
+                  },
+                  "Property": "Start"
+                }
+              },
+              "queryRef": "hierarchy.Start",
+              "nativeQueryRef": "Start"
+            }
+          ]
+        },
+        "Task": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "hierarchy"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "hierarchy.Stage",
+              "nativeQueryRef": "Stage"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "hierarchy"
+                  }
+                },
+                "Property": "Start"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "dateType": [
+        {
+          "properties": {
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quarter'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "taskLabels": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "180D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "taskConfig": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "height": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "displayGridLines": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "collapsedTasks": [
+        {
+          "properties": {
+            "list": {
+              "expr": {
+                "Literal": {
+                  "Value": "'[\"San Diego\",\"San Diego\",\"San Diego\",\"San Diego\",\"San Diego\",\"San Diego\",\"Atlanta\",\"Atlanta\",\"Atlanta\",\"Atlanta\",\"Atlanta\",\"Atlanta\"]'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Project Portfolio'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

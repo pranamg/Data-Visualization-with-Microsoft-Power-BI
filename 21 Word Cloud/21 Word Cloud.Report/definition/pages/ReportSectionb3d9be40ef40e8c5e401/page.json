@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
+  "name": "ReportSectionb3d9be40ef40e8c5e401",
+  "displayName": "Word Cloud by xViz",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

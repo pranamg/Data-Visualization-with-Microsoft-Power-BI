@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "11 Funnel Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8d64f498-55e1-4b38-aca9-fb8729cbb472"
+  }
+}

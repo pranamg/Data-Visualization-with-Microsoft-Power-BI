@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "25 Chord Diagram"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8a7d447f-cdf1-46e0-8444-7657208cf85c"
+  }
+}

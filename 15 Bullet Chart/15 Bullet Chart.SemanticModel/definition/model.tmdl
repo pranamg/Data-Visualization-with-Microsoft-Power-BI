@@ -1,0 +1,21 @@
+model Model
+	culture: ru-RU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Sales"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_a602d6a9-098c-41d1-ad38-e479ef661be6
+ref table Sales
+
+ref cultureInfo ru-RU
+

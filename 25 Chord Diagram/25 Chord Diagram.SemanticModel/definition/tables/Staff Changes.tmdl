@@ -1,0 +1,43 @@
+table 'Staff Changes'
+	lineageTag: 9cb0607e-7ca1-4852-9643-607be8e324be
+
+	column Before
+		dataType: string
+		lineageTag: be475107-cdfb-4367-993e-2411746ad310
+		summarizeBy: none
+		sourceColumn: Before
+
+		annotation SummarizationSetBy = Automatic
+
+	column After
+		dataType: string
+		lineageTag: c9039a2f-89e5-4e97-abc0-8d1d875b0157
+		summarizeBy: none
+		sourceColumn: After
+
+		annotation SummarizationSetBy = Automatic
+
+	column Number
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ff95c04-cd6b-4847-a38f-b2a3afd8f196
+		summarizeBy: sum
+		sourceColumn: Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Staff Changes-22e3d099-a592-480d-821b-b20d587dfb35' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Chord data.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Before", type text}, {"After", type text}, {"Number", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

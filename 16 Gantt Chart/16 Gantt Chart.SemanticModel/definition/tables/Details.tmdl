@@ -1,0 +1,97 @@
+table Details
+	lineageTag: 7dd910d3-4491-4289-80d5-deae531b64bd
+
+	column Project
+		dataType: string
+		lineageTag: 9c015d43-c8b9-47d6-ab02-0098b4e5c551
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stage
+		dataType: string
+		lineageTag: 846d12f3-8398-4012-8f9a-166ffd7185ad
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Task
+		dataType: string
+		lineageTag: 58f81494-13e9-46cc-b979-2f7c31f0c041
+		summarizeBy: none
+		sourceColumn: Task
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In charge'
+		dataType: string
+		lineageTag: 46b289d9-d964-48d6-b9be-052ae42594b7
+		summarizeBy: none
+		sourceColumn: In charge
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 364b5a89-db67-4333-b7ba-c85d477d0e29
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aae0b2a2-bd06-4e95-973a-ecf83fd89c69
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation Variation
+			isDefault
+			relationship: e724e08f-9de8-48a6-9159-b51df4c33f84
+			defaultHierarchy: LocalDateTable_935b645b-f437-494f-a84b-73f9d86ff736.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column End
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0c24a3f3-8f24-432b-94fe-0375f2ba1b66
+		summarizeBy: none
+		sourceColumn: End
+
+		variation Variation
+			isDefault
+			relationship: 83abdabf-e421-484a-ac57-e9d76abf6848
+			defaultHierarchy: LocalDateTable_5b90325b-3aac-4c01-97b2-380c38ba9ba3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Completion
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 11dc0c86-f23c-4406-98a4-19a4af4a1358
+		summarizeBy: sum
+		sourceColumn: Completion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Details-8e96fb9b-8c93-41c1-bc7a-8c8d8ae5cab7 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Гант_Строительные проекты.xlsx"), null, true),
+				    Details_Sheet = Source{[Item="Details",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Details_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Start", type date}, {"End", type date}, {"Completion", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

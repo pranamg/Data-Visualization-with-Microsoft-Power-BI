@@ -1,0 +1,137 @@
+table Sales
+	lineageTag: e23e3884-bf9e-41d2-ba0d-5b03d9d3c334
+
+	measure 'plan %' =
+			
+			VAR __BASELINE_VALUE = SUM('Sales'[Sales plan])
+			VAR __VALUE_TO_COMPARE = SUM('Sales'[Sales fact])
+			RETURN
+				IF(
+					NOT ISBLANK(__VALUE_TO_COMPARE),
+					DIVIDE(__VALUE_TO_COMPARE - __BASELINE_VALUE, __BASELINE_VALUE)
+				)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dc1e6b80-64fe-4792-89b5-686f05031688
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalPercentageDifference"
+				}
+
+		changedProperty = FormatString
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: eb8b084c-0a0c-42d9-b02f-f406af807b89
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 9794145d-c4ad-47a9-b82f-c5b7b9773f9a
+			defaultHierarchy: LocalDateTable_1f121a31-7288-4151-a0ec-36ab831ac516.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Country
+		dataType: string
+		lineageTag: 9d0fe7cb-fc22-4ac5-9c1b-4474a44e5d8d
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product category'
+		dataType: string
+		lineageTag: 26139b52-b20a-4f87-8951-7fb0c5748618
+		summarizeBy: none
+		sourceColumn: Product category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 20f9a9b4-79a2-430c-a1c8-ddb422fab034
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price per item'
+		dataType: double
+		lineageTag: d1968ea2-2226-42e2-a910-fb023c2a7f86
+		summarizeBy: sum
+		sourceColumn: Price per item
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales fact'
+		dataType: int64
+		lineageTag: a1df59e2-4263-4145-8f48-4a9e94bcb0fb
+		summarizeBy: sum
+		sourceColumn: Sales fact
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales plan'
+		dataType: int64
+		lineageTag: 27a032ec-5c03-458c-bbae-2b58c4e7e94d
+		summarizeBy: sum
+		sourceColumn: Sales plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column State
+		dataType: string
+		lineageTag: a99b15c8-3fc0-435d-8e17-db5dfab625e0
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product subcategory'
+		dataType: string
+		lineageTag: 7716a131-ac62-4c8e-b888-bfd612b9f036
+		summarizeBy: none
+		sourceColumn: Product subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: da8a1ab4-7067-4339-a179-81ff317864b8
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Cycles Sales for the book.xlsx"), null, true),
+				    Sales_Sheet = Source{[Item="Sales",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sales_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Country", type text}, {"Product category", type text}, {"Quantity", Int64.Type}, {"Price per item", type number}, {"Sales fact", type any}, {"Sales plan", type any}, {"State", type text}, {"Product subcategory", type text}, {"Manager", type text}, {"Column11", type any}, {"Column12", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column11", "Column12"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"Sales fact", Int64.Type}, {"Sales plan", Int64.Type}}),
+				    #"Removed Errors" = Table.RemoveRowsWithErrors(#"Changed Type1", {"Sales fact"}),
+				    #"Removed Errors1" = Table.RemoveRowsWithErrors(#"Removed Errors", {"Sales plan"})
+				in
+				    #"Removed Errors1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

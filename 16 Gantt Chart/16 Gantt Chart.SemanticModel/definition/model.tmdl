@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Details","hierarchy","Projects"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Details
+ref table DateTableTemplate_05e5576e-c5fa-4f78-8399-9be5ebabf549
+ref table hierarchy
+ref table LocalDateTable_a11934fb-38b9-4545-a72e-8160498fc0e9
+ref table LocalDateTable_ada9d7a4-492d-4227-8a72-66187fd775b2
+ref table Projects
+ref table LocalDateTable_d6f5b653-ede1-406d-803e-5abb25af8324
+ref table LocalDateTable_f4acf16a-45a7-4ff5-8b50-f2a42ac2652d
+ref table LocalDateTable_935b645b-f437-494f-a84b-73f9d86ff736
+ref table LocalDateTable_5b90325b-3aac-4c01-97b2-380c38ba9ba3
+
+ref cultureInfo en-US
+

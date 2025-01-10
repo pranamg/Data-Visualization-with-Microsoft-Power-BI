@@ -1,0 +1,91 @@
+table 'Simple WF Set'
+	lineageTag: 936be0dc-b041-4f9f-8676-cf06e4bee838
+
+	column TARGET
+		dataType: int64
+		formatString: 0
+		lineageTag: f08127a4-6119-4f92-a240-80d893ae4311
+		summarizeBy: sum
+		sourceColumn: TARGET
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: int64
+		formatString: 0
+		lineageTag: bc8fa29d-5f7e-452a-9f3d-2baef6ef6aad
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column Materials
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fcdb968-85e6-471c-89bd-9564f663b8e3
+		summarizeBy: sum
+		sourceColumn: Materials
+
+		annotation SummarizationSetBy = Automatic
+
+	column Production
+		dataType: int64
+		formatString: 0
+		lineageTag: ca49bf77-426e-4434-ba36-3a16236ae2bc
+		summarizeBy: sum
+		sourceColumn: Production
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marketing
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e26e828-b625-4fea-a5fa-275195ec0070
+		summarizeBy: sum
+		sourceColumn: Marketing
+
+		annotation SummarizationSetBy = Automatic
+
+	column Distribution
+		dataType: int64
+		formatString: 0
+		lineageTag: 9398f26e-84e4-4c8f-b498-4244b8264320
+		summarizeBy: sum
+		sourceColumn: Distribution
+
+		annotation SummarizationSetBy = Automatic
+
+	column Others
+		dataType: int64
+		formatString: 0
+		lineageTag: 9de9238b-e04c-4403-994a-73b588b4ef56
+		summarizeBy: sum
+		sourceColumn: Others
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 807f4d47-9f0d-4bec-a7c9-6c347009c1e7
+		summarizeBy: sum
+		sourceColumn: ACTUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Simple WF Set' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\14 Waterfall Dataset.xlsx"), null, true),
+				    #"Simple WF Set_Sheet" = Source{[Item="Simple WF Set",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Simple WF Set_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Factor", type text}, {"Value", Int64.Type}}),
+				    #"Pivoted Column" = Table.Pivot(#"Changed Type", List.Distinct(#"Changed Type"[Factor]), "Factor", "Value", List.Sum)
+				in
+				    #"Pivoted Column"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "19 Gauges"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ce66c12c-1746-42a4-afa4-7cb28e7279c0"
+  }
+}

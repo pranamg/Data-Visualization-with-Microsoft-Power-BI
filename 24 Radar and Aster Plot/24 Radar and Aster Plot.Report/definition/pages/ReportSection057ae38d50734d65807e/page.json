@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
+  "name": "ReportSection057ae38d50734d65807e",
+  "displayName": "Phone Pref",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

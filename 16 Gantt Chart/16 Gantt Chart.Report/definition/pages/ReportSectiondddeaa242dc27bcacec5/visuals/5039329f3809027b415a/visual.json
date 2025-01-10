@@ -1,0 +1,960 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "5039329f3809027b415a",
+  "position": {
+    "x": 111.25,
+    "y": 53.75,
+    "z": 0,
+    "height": 567.5,
+    "width": 980,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "GanttChartByMAQSoftware1448688115701",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Details"
+                    }
+                  },
+                  "Property": "Project"
+                }
+              },
+              "queryRef": "Details.Project",
+              "nativeQueryRef": "Project"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Details"
+                    }
+                  },
+                  "Property": "Stage"
+                }
+              },
+              "queryRef": "Details.Stage",
+              "nativeQueryRef": "Stage"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Details"
+                    }
+                  },
+                  "Property": "Task"
+                }
+              },
+              "queryRef": "Details.Task",
+              "nativeQueryRef": "Task"
+            }
+          ]
+        },
+        "EndDate": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Details"
+                        }
+                      },
+                      "Property": "End"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Details.End)",
+              "nativeQueryRef": "Earliest End"
+            }
+          ]
+        },
+        "KPIValueBag": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Details"
+                    }
+                  },
+                  "Property": "In charge"
+                }
+              },
+              "queryRef": "Details.In charge",
+              "nativeQueryRef": "In charge"
+            }
+          ]
+        },
+        "Legend": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Details"
+                    }
+                  },
+                  "Property": "Status"
+                }
+              },
+              "queryRef": "Details.Status",
+              "nativeQueryRef": "Status"
+            }
+          ]
+        },
+        "Resource": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Details"
+                        }
+                      },
+                      "Property": "Completion"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Min(Details.Completion)",
+              "nativeQueryRef": "Completion"
+            }
+          ]
+        },
+        "StartDate": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Details"
+                        }
+                      },
+                      "Property": "Start"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Details.Start)",
+              "nativeQueryRef": "Earliest Start"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryColumnsWidth": [
+        {
+          "properties": {
+            "categoryLength": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "'\"task-column0:15;column0:91;task-column1:91;column1:91;task-column2:182;column2:91;\"'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "caption": [
+        {
+          "properties": {
+            "captionValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"1\":\"#1AAB40\",\"2\":\"#00DBBC\",\"3\":\"#12239E\",\"4\":\"#118DFF\",\"5\":\"#E044A7\",\"6\":\"#E66C37\",\"7\":\"#6B007B\",\"8\":\"#197278\",\"9\":\"#744EC2\",\"10\":\"#D9B300\",\"11\":\"#D64550\",\"12\":\"#4092FF\",\"13\":\"#1AAB40\",\"14\":\"#15C6F4\",\"15\":\"#F472D0\",\"16\":\"#FFA058\",\"17\":\"#BE5DC9\",\"18\":\"#FF8080\",\"19\":\"#B5A1FF\",\"20\":\"#C4A200\",\"21\":\"#6A5A29\",\"22\":\"#FF6300\",\"23\":\"#5BD667\",\"24\":\"#0091D5\",\"25\":\"#4668C5\",\"26\":\"#533285\",\"27\":\"#99008A\",\"28\":\"#EC008C\",\"29\":\"#25891C\",\"30\":\"#99700A\",\"31\":\"#FF4141\",\"32\":\"#1F9A85\",\"33\":\"#002050\",\"34\":\"#0057A2\",\"35\":\"#450F54\",\"36\":\"#C94F0F\",\"37\":\"#34124F\",\"38\":\"#B60064\",\"Cancelled\":\"#DD5228\",\"Completed\":\"#5EB96D\",\"In progress\":\"#e1c233\",\"Suspended\":\"#b3b3b3\"}'"
+                }
+              }
+            },
+            "captionValueForStatusColorMapping": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "displayRatio": [
+        {
+          "properties": {
+            "ratio": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "taskLabels": [
+        {
+          "properties": {
+            "isHierarchy": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "persistExpandCollapseSettings": [
+        {
+          "properties": {
+            "expandCollapseState": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"1\":false,\"2\":true,\"3\":true,\"4\":false,\"5\":true,\"6\":false,\"7\":false,\"8\":true,\"9\":false,\"10\":false,\"11\":false,\"12\":false,\"13\":false,\"14\":false,\"15\":false,\"16\":false,\"17\":false,\"18\":false,\"19\":false,\"20\":false,\"21\":false,\"22\":false,\"23\":false,\"24\":false,\"25\":false,\"26\":false,\"27\":false,\"28\":false,\"29\":false,\"30\":false,\"31\":false,\"32\":false,\"33\":false,\"34\":false,\"35\":false,\"36\":false,\"37\":false,\"38\":false}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dateType": [
+        {
+          "properties": {
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quarter'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeader": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "sortBehavior": [
+        {
+          "properties": {
+            "toggleSortBehavior": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "scrollPosition": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Today'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "taskResource": [
+        {
+          "properties": {
+            "showParentDataLabels": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "barColor": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "And": {
+                    "Left": {
+                      "And": {
+                        "Left": {
+                          "And": {
+                            "Left": {
+                              "And": {
+                                "Left": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Project"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Austin'"
+                                      }
+                                    }
+                                  }
+                                },
+                                "Right": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Stage"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Finish work'"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Details"
+                                      }
+                                    },
+                                    "Property": "Task"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Electric work'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Details"
+                                  }
+                                },
+                                "Property": "Status"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'In progress'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Right": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Details"
+                              }
+                            },
+                            "Property": "In charge"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'J.Belly'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#5EB96D'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "And": {
+                    "Left": {
+                      "And": {
+                        "Left": {
+                          "And": {
+                            "Left": {
+                              "And": {
+                                "Left": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Project"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Austin'"
+                                      }
+                                    }
+                                  }
+                                },
+                                "Right": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Stage"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Project development'"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Details"
+                                      }
+                                    },
+                                    "Property": "Task"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Building permission'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Details"
+                                  }
+                                },
+                                "Property": "Status"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Completed'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Right": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Details"
+                              }
+                            },
+                            "Property": "In charge"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'H.Heiley'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DD5228'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "And": {
+                    "Left": {
+                      "And": {
+                        "Left": {
+                          "And": {
+                            "Left": {
+                              "And": {
+                                "Left": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Project"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Austin'"
+                                      }
+                                    }
+                                  }
+                                },
+                                "Right": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Stage"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Facility commissioning'"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Details"
+                                      }
+                                    },
+                                    "Property": "Task"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Signing of an act'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Details"
+                                  }
+                                },
+                                "Property": "Status"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Cancelled'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Right": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Details"
+                              }
+                            },
+                            "Property": "In charge"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'J.Rush'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "And": {
+                    "Left": {
+                      "And": {
+                        "Left": {
+                          "And": {
+                            "Left": {
+                              "And": {
+                                "Left": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Project"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Austin'"
+                                      }
+                                    }
+                                  }
+                                },
+                                "Right": {
+                                  "Comparison": {
+                                    "ComparisonKind": 0,
+                                    "Left": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Entity": "Details"
+                                          }
+                                        },
+                                        "Property": "Stage"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "'Finish work'"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "Details"
+                                      }
+                                    },
+                                    "Property": "Task"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Engeneering works'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Details"
+                                  }
+                                },
+                                "Property": "Status"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Suspended'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Right": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Details"
+                              }
+                            },
+                            "Property": "In charge"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'G.Kim'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "defaultColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "taskGridlines": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Construction Works Breakdown '"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

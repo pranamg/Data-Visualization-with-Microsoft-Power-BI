@@ -1,0 +1,95 @@
+table Projects
+	lineageTag: 85dba412-97e8-4edd-bda9-ac032405443f
+
+	column Project
+		dataType: string
+		lineageTag: 125d6e2c-1761-4d62-976c-ae2f032fb551
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0353c877-fa65-41f9-90a9-5a0f3b31ae86
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation Variation
+			isDefault
+			relationship: 8d812888-7d98-45d2-9822-10085e46b967
+			defaultHierarchy: LocalDateTable_d6f5b653-ede1-406d-803e-5abb25af8324.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column End
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 31bfc6a3-3f81-42db-9ef6-e0b0be850242
+		summarizeBy: none
+		sourceColumn: End
+
+		variation Variation
+			isDefault
+			relationship: f47cbe1f-f0f4-47aa-bed5-e2f86a9c2b95
+			defaultHierarchy: LocalDateTable_f4acf16a-45a7-4ff5-8b50-f2a42ac2652d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Completion
+		dataType: double
+		lineageTag: 925ef19e-bc50-4723-beea-9eae12bbbe41
+		summarizeBy: sum
+		sourceColumn: Completion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Budget target, mln.'
+		dataType: int64
+		formatString: 0
+		lineageTag: eb26f08f-d38f-481c-a16e-d255fdea9b19
+		summarizeBy: sum
+		sourceColumn: Budget target, mln.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget actual, mln.'
+		dataType: int64
+		formatString: 0
+		lineageTag: 75409c88-0dc8-46a7-a3e9-f4770505e21d
+		summarizeBy: sum
+		sourceColumn: Budget actual, mln.
+
+		annotation SummarizationSetBy = Automatic
+
+	column '%% compl'
+		dataType: string
+		lineageTag: 04c7d05b-5113-47aa-9cd9-62faf8777be5
+		summarizeBy: none
+		sourceColumn: %% compl
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Projects-e03b1f93-b1bf-4d9d-8629-ca0bd7ba0c0d = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Гант_Строительные проекты.xlsx"), null, true),
+				    Projects_Sheet = Source{[Item="Projects",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Projects_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Project", type text}, {"Start", type date}, {"End", type date}, {"Completion", type number}, {"Budget target, mln.", Int64.Type}, {"Budget actual, mln.", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "%% compl", each [Completion]*100),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"%% compl", Int64.Type}}),
+				    #"Added Suffix" = Table.TransformColumns(#"Changed Type1", {{"%% compl", each Text.From(_, "ru-RU") & "%", type text}})
+				in
+				    #"Added Suffix"
+
+	annotation PBI_ResultType = Table
+

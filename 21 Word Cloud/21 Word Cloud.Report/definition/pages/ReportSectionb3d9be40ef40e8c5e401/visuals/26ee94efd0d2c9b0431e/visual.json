@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "26ee94efd0d2c9b0431e",
+  "position": {
+    "x": 208.22966507177034,
+    "y": 90.334928229665081,
+    "z": 0,
+    "height": 538.94736842105272,
+    "width": 759.42583732057426
+  },
+  "visual": {
+    "visualType": "tagCloud8448D0BE3AE3424D97B3973515418218",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cycles"
+                    }
+                  },
+                  "Property": "Product subcategory"
+                }
+              },
+              "queryRef": "Cycles.Product subcategory",
+              "active": true
+            }
+          ]
+        },
+        "size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Cycles"
+                        }
+                      },
+                      "Property": "Sales fact"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Cycles.Sales fact)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Cycles"
+                      }
+                    },
+                    "Property": "Sales fact"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "bifrostSection": [
+        {
+          "properties": {
+            "bifrost": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"mergedProps\":{}}'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

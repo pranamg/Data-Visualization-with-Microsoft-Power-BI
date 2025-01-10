@@ -1,0 +1,135 @@
+table Cycles
+	lineageTag: 42da39c2-91d5-4047-9a07-e68135f7757e
+
+	measure 'Sales fact % difference from Sales plan' =
+			
+			VAR __BASELINE_VALUE = SUM('Cycles'[Sales plan])
+			VAR __VALUE_TO_COMPARE = SUM('Cycles'[Sales fact])
+			RETURN
+				IF(
+					NOT ISBLANK(__VALUE_TO_COMPARE),
+					DIVIDE(__VALUE_TO_COMPARE - __BASELINE_VALUE, __BASELINE_VALUE)
+				)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2fdef146-f758-436e-8aac-6629f720515a
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalPercentageDifference"
+				}
+
+		changedProperty = FormatString
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c31521b3-c897-416b-894e-b5901af1eb96
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: f48fa4b3-2fe8-4874-8797-803ab42d81ef
+			defaultHierarchy: LocalDateTable_90525e4b-a2c9-4ded-8b0e-4405566d64d1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Country
+		dataType: string
+		lineageTag: 2e54e053-45a9-48f6-b90a-b2f6dd3e70bb
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product category'
+		dataType: string
+		lineageTag: 82a1dc24-db79-4201-b904-19f370a8a57a
+		summarizeBy: none
+		sourceColumn: Product category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: eb4158f3-e707-4957-9f65-84d831de5ec4
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price per item'
+		dataType: double
+		lineageTag: 4c9f69de-f459-46a3-a341-488ce657d67e
+		summarizeBy: sum
+		sourceColumn: Price per item
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales fact'
+		dataType: double
+		lineageTag: f10fc03e-005a-4854-82af-a9f5dc417c7c
+		summarizeBy: sum
+		sourceColumn: Sales fact
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales plan'
+		dataType: double
+		lineageTag: 94b9d157-ea21-4cfa-9fa7-5ce9ddcf91bc
+		summarizeBy: sum
+		sourceColumn: Sales plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column State
+		dataType: string
+		lineageTag: b9c9b780-69c1-4b70-8fdc-22f880a438e6
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product subcategory'
+		dataType: string
+		lineageTag: c676d880-0fd4-4c50-9064-d044e32bc033
+		summarizeBy: none
+		sourceColumn: Product subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: d35d3b87-ab2b-4b4b-9956-879d910b79f5
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cycles = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Sales Cycles Fact 2021.xlsx"), null, true),
+				    Cycles_Sheet = Source{[Item="Cycles",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Cycles_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Country", type text}, {"Product category", type text}, {"Quantity", Int64.Type}, {"Price per item", type number}, {"Sales fact", type any}, {"Sales plan", type any}, {"State", type text}, {"Product subcategory", type text}, {"Manager", type text}, {"Column11", type any}, {"Column12", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column11", "Column12"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"Sales fact", type number}, {"Sales plan", type number}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

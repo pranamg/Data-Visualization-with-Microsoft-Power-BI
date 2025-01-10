@@ -1,0 +1,91 @@
+table hierarchy
+	lineageTag: 25c18eae-7c8e-4408-9e23-4a9d9ef0438d
+
+	column Project
+		dataType: string
+		lineageTag: ff3e6bd2-ccfc-4d6f-a81b-f81e62aed3f1
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stage
+		dataType: string
+		lineageTag: c85a62ca-aaa0-4f51-88b9-3ab918a07188
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0f44aca6-1ab3-4e07-9635-fe15d6cdf59c
+		summarizeBy: none
+		sourceColumn: Start
+
+		variation Variation
+			isDefault
+			relationship: 628d72a0-3196-4a30-958f-c881885ddc8f
+			defaultHierarchy: LocalDateTable_a11934fb-38b9-4545-a72e-8160498fc0e9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column End
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 00ad6418-faf7-4bd9-998f-6ce91a16f927
+		summarizeBy: none
+		sourceColumn: End
+
+		variation Variation
+			isDefault
+			relationship: ab197c28-e486-4354-bd4e-6878f15f6970
+			defaultHierarchy: LocalDateTable_ada9d7a4-492d-4227-8a72-66187fd775b2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Completion
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 489551d7-3a79-430d-9c71-baca291f2398
+		summarizeBy: sum
+		sourceColumn: Completion
+
+		annotation SummarizationSetBy = Automatic
+
+	column '%% compl'
+		dataType: string
+		lineageTag: 02ceb8c4-003d-44fd-af71-8ea39caaaf9e
+		summarizeBy: none
+		sourceColumn: %% compl
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Completion Label' = FORMAT('hierarchy'[Completion], "0%")
+		lineageTag: e6ed0dea-4080-48d8-b69b-cae17b0fb2f0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hierarchy-a3248948-225d-4f1b-a574-a02edeaf21fc = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Гант_Строительные проекты.xlsx"), null, true),
+				    hierarchy_Sheet = Source{[Item="hierarchy",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(hierarchy_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Project", type text}, {"Stage", type text}, {"Start", type date}, {"End", type date}, {"Completion", type number}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column6", "Column7", "Column8"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "%% compl", each [Completion]*100),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"%% compl", type text}}),
+				    #"Added Suffix" = Table.TransformColumns(#"Changed Type1", {{"%% compl", each _ & "%", type text}})
+				in
+				    #"Added Suffix"
+
+	annotation PBI_ResultType = Table
+

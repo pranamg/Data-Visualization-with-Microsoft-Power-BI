@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
+  "name": "ReportSection049f9ab047b465e14a44",
+  "displayName": "Gradient",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

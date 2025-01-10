@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "03 Column and Bar Charts"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d11c12f3-c051-4995-a290-93bd44a366ef"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "vscode.json-language-features",
+  "editor.tabSize": 2,
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewLine": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "files.associations": {
+    "*.pbix": "powerbi",
+    "*.pbit": "powerbi",
+    "*.dax": "dax",
+    "*.m": "powerquery"
+  },
+  "powerbi.general.theme": "light",
+  "powerbi.certifiedExtensionsOnly": true,
+  "[dax]": {
+    "editor.wordWrap": "on",
+    "editor.suggestSelection": "first"
+  },
+  "[powerquery]": {
+    "editor.wordWrap": "on"
+  }
+}

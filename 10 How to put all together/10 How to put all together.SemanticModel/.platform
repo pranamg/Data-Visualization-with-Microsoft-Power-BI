@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "10 How to put all together"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "831fb99f-7de0-4e2b-bf01-a39696f37aef"
+  }
+}

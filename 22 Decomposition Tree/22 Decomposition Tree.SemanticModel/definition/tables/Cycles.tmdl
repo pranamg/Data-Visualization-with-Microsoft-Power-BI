@@ -1,0 +1,111 @@
+table Cycles
+	lineageTag: 7cd6209b-cec2-4f77-a2be-1a01aa6bca68
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5d5efde0-d791-4852-879c-d8bc6b18a4ce
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: eb484d3e-b92f-4b67-b45d-0482fc0efb8f
+			defaultHierarchy: LocalDateTable_b90f03fb-7a9c-4b32-9c12-6b0e20b5ff2b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Country
+		dataType: string
+		lineageTag: 705eb237-9b43-43c6-b68e-ad114d56311d
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product category'
+		dataType: string
+		lineageTag: f86a6d76-865a-4d1a-a4c9-fedb645d128b
+		summarizeBy: none
+		sourceColumn: Product category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 4aa14694-8db1-4fa3-9667-91b366a203bd
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price per item'
+		dataType: double
+		lineageTag: f078929c-f7e2-494a-be1e-822ab097a3f4
+		summarizeBy: sum
+		sourceColumn: Price per item
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales fact'
+		dataType: int64
+		formatString: 0
+		lineageTag: b6c3f705-7f5c-4543-8cbe-89cf41275546
+		summarizeBy: sum
+		sourceColumn: Sales fact
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales plan'
+		dataType: int64
+		formatString: 0
+		lineageTag: 29bf549e-1e7d-42bc-9f6e-9fa8ed5bf854
+		summarizeBy: sum
+		sourceColumn: Sales plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: c68f6e9b-e24c-44e5-9f82-810d461d074f
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product subcategory'
+		dataType: string
+		lineageTag: 1c2a8777-87b8-43cf-b37c-61fee84a0c45
+		summarizeBy: none
+		sourceColumn: Product subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: 538e98b2-1f9c-4d64-9bbc-d6c82a0fc813
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Cycles = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Sales Cycles Fact 2021.xlsx"), null, true),
+				    Cycles_Sheet = Source{[Item="Cycles",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Cycles_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Country", type text}, {"Product category", type text}, {"Quantity", Int64.Type}, {"Price per item", type number}, {"Sales fact", type any}, {"Sales plan", type any}, {"State", type text}, {"Product subcategory", type text}, {"Manager", type text}, {"Column11", type any}, {"Column12", type any}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column11", "Column12"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"Sales fact", Int64.Type}, {"Sales plan", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,45 @@
+table mOBILES
+	lineageTag: 50c117af-0c82-4d9b-90a3-7506d47d5533
+
+	column Parameter
+		dataType: string
+		lineageTag: c2311047-5601-4adf-a812-0e6f85c60f39
+		summarizeBy: none
+		sourceColumn: Parameter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'age 16-30 '
+		dataType: int64
+		formatString: 0
+		lineageTag: fcd1dd9e-4ae6-4946-a811-85ad29ef8feb
+		summarizeBy: sum
+		sourceColumn: "age 16-30 "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'age 31-75+'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6eef5384-4502-4e74-8298-3ecec8880aa5
+		summarizeBy: sum
+		sourceColumn: age 31-75+
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mOBILES = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Radar Dataset.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Column1", type text}, {"age 16-30 ", Int64.Type}, {"age 31-75+", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Parameter"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

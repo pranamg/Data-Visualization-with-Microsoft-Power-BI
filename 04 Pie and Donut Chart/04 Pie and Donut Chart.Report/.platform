@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "04 Pie and Donut Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7b53fcb2-2e70-43ef-8d2f-257afc886dee"
+  }
+}

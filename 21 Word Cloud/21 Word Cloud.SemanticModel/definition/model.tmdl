@@ -1,0 +1,27 @@
+model Model
+	culture: ru-RU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 24.10.2022 12:03:53.
+queryGroup 'Query Errors - 24 10 2022 12:03:53'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_QueryOrder = ["Cycles","Errors in Cycles"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_fc30bd74-a175-4dfe-bbc2-76a6eb446d16
+ref table Cycles
+ref table LocalDateTable_aa84f30b-0cc3-4d1d-b782-39b1c9bd68d2
+
+ref cultureInfo ru-RU
+

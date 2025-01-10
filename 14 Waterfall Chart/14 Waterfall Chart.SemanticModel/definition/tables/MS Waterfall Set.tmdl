@@ -1,0 +1,41 @@
+table 'MS Waterfall Set'
+	lineageTag: 3417f66c-5751-4adc-85a8-8d295146d528
+
+	column Factor
+		dataType: string
+		lineageTag: d49dbae7-e870-4a62-b472-11ace849c277
+		summarizeBy: none
+		sourceColumn: Factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		lineageTag: 2ffb4366-66fe-4732-929d-a4a29fc918d4
+		summarizeBy: none
+		sourceColumn: Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total
+		dataType: int64
+		formatString: 0
+		lineageTag: 910aa046-4592-4e78-8196-7743c7aa651b
+		summarizeBy: sum
+		sourceColumn: Total
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MS Waterfall Set' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\14 Waterfall Dataset.xlsx"), null, true),
+				    #"MS Waterfall Set_Sheet" = Source{[Item="MS Waterfall Set",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"MS Waterfall Set_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Factor", type text}, {"Version", type text}, {"Total", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

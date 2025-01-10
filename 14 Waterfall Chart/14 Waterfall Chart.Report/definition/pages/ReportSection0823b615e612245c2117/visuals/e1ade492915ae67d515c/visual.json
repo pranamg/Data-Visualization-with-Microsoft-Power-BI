@@ -1,0 +1,439 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "e1ade492915ae67d515c",
+  "position": {
+    "x": 215.99093997734994,
+    "y": 84.077010192525478,
+    "z": 0,
+    "height": 550.84937712344288,
+    "width": 848.01812004530018
+  },
+  "visual": {
+    "visualType": "SimpleWaterfall",
+    "query": {
+      "queryState": {
+        "measure": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "TARGET"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.TARGET)",
+              "nativeQueryRef": "TARGET",
+              "displayName": "TARGET"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Sales"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Sales)",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Production"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Production)",
+              "nativeQueryRef": "Production",
+              "displayName": "Production"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Materials"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Materials)",
+              "nativeQueryRef": "Materials",
+              "displayName": "Materials"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Distribution"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Distribution)",
+              "nativeQueryRef": "Distribution",
+              "displayName": "Distribution"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Others"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Others)",
+              "nativeQueryRef": "Others",
+              "displayName": "Others"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "Marketing"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.Marketing)",
+              "nativeQueryRef": "Marketing",
+              "displayName": "Marketing"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Simple WF Set"
+                        }
+                      },
+                      "Property": "ACTUAL"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Simple WF Set.ACTUAL)",
+              "nativeQueryRef": "ACTUAL",
+              "displayName": "ACTUAL"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Simple WF Set"
+                      }
+                    },
+                    "Property": "TARGET"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "definePillars": [
+        {
+          "properties": {
+            "Totalpillar": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "For Excel"
+                          }
+                        },
+                        "Property": "Factor"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'TARGET'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "For Excel"
+                          }
+                        },
+                        "Property": "Factor"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ACTUAL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Simple WF Set"
+                          }
+                        },
+                        "Property": "Factor"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'TARGET'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Simple WF Set"
+                          }
+                        },
+                        "Property": "Factor"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ACTUAL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Simple WF Set.ACTUAL)"
+          }
+        },
+        {
+          "properties": {
+            "pillars": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Simple WF Set.TARGET)"
+          }
+        }
+      ],
+      "LabelsFormatting": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Factor Analysis'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

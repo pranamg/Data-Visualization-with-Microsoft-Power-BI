@@ -1,0 +1,5 @@
+relationship ef32c618-302e-40eb-9a16-971cbc20768f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Cycles.Date
+	toColumn: LocalDateTable_aa84f30b-0cc3-4d1d-b782-39b1c9bd68d2.Date
+

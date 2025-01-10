@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "22 Decomposition Tree"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "39073d4a-c574-407f-8fd0-024654791afa"
+  }
+}

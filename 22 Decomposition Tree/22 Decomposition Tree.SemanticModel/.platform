@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "22 Decomposition Tree"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "67cc1ff3-5812-480b-bb11-77dbef007e12"
+  }
+}

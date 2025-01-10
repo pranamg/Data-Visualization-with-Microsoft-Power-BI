@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "12 Maps"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a071a504-1210-492b-83dd-1b48649be8d4"
+  }
+}

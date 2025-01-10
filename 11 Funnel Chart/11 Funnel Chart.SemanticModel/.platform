@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "11 Funnel Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5171068d-82d8-4b4f-bf5a-3e68bda81a49"
+  }
+}

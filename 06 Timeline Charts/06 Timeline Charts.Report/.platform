@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "06 Timeline Charts"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "02f5a77c-18d9-474f-89d9-d11b97f11cc1"
+  }
+}

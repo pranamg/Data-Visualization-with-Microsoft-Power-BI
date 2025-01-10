@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "14 Waterfall Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "165ef341-8730-4a83-b6f4-99127a07a68d"
+  }
+}

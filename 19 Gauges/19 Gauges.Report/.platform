@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "19 Gauges"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9169d7a9-7c71-4476-9601-c501fafed15e"
+  }
+}

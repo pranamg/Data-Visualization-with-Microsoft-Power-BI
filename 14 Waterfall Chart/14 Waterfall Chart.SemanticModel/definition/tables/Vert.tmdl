@@ -1,0 +1,135 @@
+table Vert
+	lineageTag: d0f3134b-9cc2-459a-b912-7cd5ca78dbb1
+
+	column 'Expected Costs'
+		dataType: int64
+		formatString: 0
+		lineageTag: acd88b6d-f642-42ef-8c0c-a3f5df9b9be1
+		summarizeBy: sum
+		sourceColumn: Expected Costs
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Raw Materials'
+		dataType: int64
+		formatString: 0
+		lineageTag: 347748d9-580e-48e1-b8cb-3cf39a5b866c
+		summarizeBy: sum
+		sourceColumn: Raw Materials
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Labor Costs'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c67e3ca-98ca-44c9-9038-d6fa68d88269
+		summarizeBy: sum
+		sourceColumn: Labor Costs
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Insurance for Raw Materials'
+		dataType: int64
+		formatString: 0
+		lineageTag: 339a753b-da7f-473e-bc4f-b75154dd3bd9
+		summarizeBy: sum
+		sourceColumn: Insurance for Raw Materials
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rent for Product Unit'
+		dataType: int64
+		formatString: 0
+		lineageTag: b75e4519-9f80-41ba-b72b-5d266d773a2a
+		summarizeBy: sum
+		sourceColumn: Rent for Product Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Utilities
+		dataType: int64
+		formatString: 0
+		lineageTag: c69579b1-4cfa-41d4-899e-2f518c72bcda
+		summarizeBy: sum
+		sourceColumn: Utilities
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Manufacturing Expenses'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b67f347-882c-4584-9375-e40b9e7fe20d
+		summarizeBy: sum
+		sourceColumn: Total Manufacturing Expenses
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Administrative Expenses'
+		dataType: int64
+		formatString: 0
+		lineageTag: 44ba64d9-9ff7-4201-973c-27c1e1aafb27
+		summarizeBy: sum
+		sourceColumn: Administrative Expenses
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Distributin Expenses Expenses'
+		dataType: int64
+		formatString: 0
+		lineageTag: bfb31d43-2c80-4c9b-aae5-7496a1233fdf
+		summarizeBy: sum
+		sourceColumn: Distributin Expenses Expenses
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transportation
+		dataType: int64
+		formatString: 0
+		lineageTag: 27ee5594-fc2d-40f2-87c7-0a4f235102ba
+		summarizeBy: sum
+		sourceColumn: Transportation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Intererst
+		dataType: int64
+		formatString: 0
+		lineageTag: bff099fe-4ad0-4383-be24-568ca699b727
+		summarizeBy: sum
+		sourceColumn: Intererst
+
+		annotation SummarizationSetBy = Automatic
+
+	column Taxes
+		dataType: int64
+		formatString: 0
+		lineageTag: 15876595-64f1-4d2b-aae3-05c0cbb39ec8
+		summarizeBy: sum
+		sourceColumn: Taxes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Costs'
+		dataType: int64
+		formatString: 0
+		lineageTag: a63e4f25-2716-4f98-91c8-0d9569aec2f4
+		summarizeBy: sum
+		sourceColumn: Total Costs
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Vert = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\14 Waterfall Dataset.xlsx"), null, true),
+				    Vert_Sheet = Source{[Item="Vert",Kind="Sheet"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Vert_Sheet,{{"Column1", type text}, {"Column2", Int64.Type}}),
+				    #"Pivoted Column" = Table.Pivot(#"Changed Type", List.Distinct(#"Changed Type"[Column1]), "Column1", "Column2", List.Sum)
+				in
+				    #"Pivoted Column"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

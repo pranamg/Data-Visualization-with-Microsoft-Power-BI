@@ -1,0 +1,33 @@
+table Stages
+	lineageTag: 973334c7-f694-4bd7-8e3c-6240dcabd7bb
+
+	column Stage
+		dataType: string
+		lineageTag: cca12f63-d89d-4e96-b1bc-47ee2af4c152
+		summarizeBy: none
+		sourceColumn: Stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Number
+		dataType: int64
+		formatString: 0
+		lineageTag: 96d01d7b-40d9-4385-abab-364ab3dc482c
+		summarizeBy: sum
+		sourceColumn: Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Stages = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Funnel for recruitment.xlsx"), null, true),
+				    Stages_Sheet = Source{[Item="Stages",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Stages_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Stage", type text}, {"Number", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

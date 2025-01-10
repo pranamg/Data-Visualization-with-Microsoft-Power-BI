@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../07 Table and Matrix.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

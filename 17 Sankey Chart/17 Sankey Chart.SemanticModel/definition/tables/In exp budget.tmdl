@@ -1,0 +1,41 @@
+table 'In exp budget'
+	lineageTag: 000da4f4-1aa1-4e43-837c-3518824079fa
+
+	column Category
+		dataType: string
+		lineageTag: b34242eb-f9dd-443b-9ad5-1b9d1aac0788
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Position
+		dataType: string
+		lineageTag: c5b2bfa2-abd9-4f94-b248-b7fc4b64ffed
+		summarizeBy: none
+		sourceColumn: Position
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 577f5e00-cb7b-4b40-a4be-74c3634b292a
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'In exp budget-2389e33f-1a1d-4c1e-a26d-c60472b85653' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Desktop\Sankey for the Book.xlsx"), null, true),
+				    #"In exp budget_Sheet" = Source{[Item="In exp budget",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"In exp budget_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Category", type text}, {"Position", type text}, {"Value", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

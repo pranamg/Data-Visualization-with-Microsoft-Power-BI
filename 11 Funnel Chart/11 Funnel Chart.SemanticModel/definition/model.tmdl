@@ -1,0 +1,21 @@
+model Model
+	culture: ru-RU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_QueryOrder = ["Stages"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_cc4cff7a-2112-4664-a671-e1ef83c9a0e6
+ref table Stages
+
+ref cultureInfo ru-RU
+

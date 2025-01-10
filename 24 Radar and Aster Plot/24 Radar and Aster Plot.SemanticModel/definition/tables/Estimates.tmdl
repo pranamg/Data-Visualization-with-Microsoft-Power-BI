@@ -1,0 +1,54 @@
+table Estimates
+	lineageTag: 93ab22d3-99e2-4649-bacb-9e6e1525bacc
+
+	column Characteristic
+		dataType: string
+		lineageTag: 7764c548-0160-403a-9635-74ae4a81ae69
+		summarizeBy: none
+		sourceColumn: Characteristic
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: 89223c9f-0cf2-4b1c-bfdb-74dac0ea5713
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column Evaluator
+		dataType: string
+		lineageTag: f8103074-e54f-4072-8121-7a88770c9d4d
+		summarizeBy: none
+		sourceColumn: Evaluator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a79f45a-debb-4592-abe5-26c35e6802f2
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Estimates = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Radar Dataset.xlsx"), null, true),
+				    Estimates_Sheet = Source{[Item="Estimates",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Estimates_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Characteristic", type text}, {"Manager", type text}, {"Evaluator", type text}, {"Value", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type","Supervisor","Boss",Replacer.ReplaceText,{"Evaluator"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Self rating","Self evaluating ",Replacer.ReplaceText,{"Evaluator"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value1","Self evaluating","Self evaluation",Replacer.ReplaceText,{"Evaluator"})
+				in
+				    #"Replaced Value3"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

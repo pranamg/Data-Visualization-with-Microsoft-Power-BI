@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "2d653da3ba17075ad8c5",
+  "position": {
+    "x": 321.09965635738831,
+    "y": 55.715922107674686,
+    "z": 1000,
+    "height": 608.47651775486827,
+    "width": 690.58419243986259,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "keyDriversVisual",
+    "query": {
+      "queryState": {
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cycles"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "Cycles.Country",
+              "nativeQueryRef": "Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cycles"
+                    }
+                  },
+                  "Property": "Product subcategory"
+                }
+              },
+              "queryRef": "Cycles.Product subcategory",
+              "nativeQueryRef": "Product subcategory"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cycles"
+                    }
+                  },
+                  "Property": "Manager"
+                }
+              },
+              "queryRef": "Cycles.Manager",
+              "nativeQueryRef": "Manager"
+            }
+          ]
+        },
+        "Target": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cycles"
+                    }
+                  },
+                  "Property": "Sales fact"
+                }
+              },
+              "queryRef": "Cycles.Sales fact",
+              "nativeQueryRef": "Sales fact"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "keyDrivers": [
+        {
+          "properties": {
+            "numericTargetSelectedKind": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "selectedAnalysis": {
+              "expr": {
+                "Literal": {
+                  "Value": "'keyInfluencers'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

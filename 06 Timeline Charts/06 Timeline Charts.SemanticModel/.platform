@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "06 Timeline Charts"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f1862db7-d564-4bff-86f8-4d34e42555cf"
+  }
+}

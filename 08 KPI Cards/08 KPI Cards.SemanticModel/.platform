@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "08 KPI Cards"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "80d579fb-6a8a-4644-a527-f8bb3f6f73ae"
+  }
+}

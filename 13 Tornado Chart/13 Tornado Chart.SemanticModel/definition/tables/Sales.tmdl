@@ -1,0 +1,139 @@
+table Sales
+	lineageTag: af83c800-9a6c-4820-a563-f521d4721946
+
+	measure '% plan' =
+			
+			VAR __BASELINE_VALUE = SUM('Sales'[Margin Target, $ ])
+			VAR __VALUE_TO_COMPARE = SUM('Sales'[Margin Actual, $ ])
+			RETURN
+				IF(
+					NOT ISBLANK(__VALUE_TO_COMPARE),
+					DIVIDE(__VALUE_TO_COMPARE - __BASELINE_VALUE, __BASELINE_VALUE)
+				)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dada6eda-58ce-4404-b4e9-2eb4dce50d86
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalPercentageDifference"
+				}
+
+		changedProperty = FormatString
+
+	column 'Order ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 89cfe2ec-d5db-40bb-a52f-b770049463c4
+		summarizeBy: count
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales channel'
+		dataType: string
+		lineageTag: 043b4e94-2900-421b-bf3f-a16e02e1b152
+		summarizeBy: none
+		sourceColumn: Sales channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product segment'
+		dataType: string
+		lineageTag: 8ab0da38-d063-46ab-8f95-a647a1933569
+		summarizeBy: none
+		sourceColumn: Product segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: 4a22a482-5b78-4a12-907c-7227df910f12
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Name'
+		dataType: string
+		lineageTag: f6ad2bae-a9c6-47e2-91d8-ea3bafebcb1c
+		summarizeBy: none
+		sourceColumn: Order Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 9d98cadc-0623-4ae6-89fc-cc862609d656
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 740a0f75-15b0-480b-bd7b-15772bfd8b8e
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin Actual, $ '
+		dataType: int64
+		formatString: #,0
+		lineageTag: dbde8289-28eb-4848-b29d-b095ec7f95b3
+		summarizeBy: sum
+		sourceColumn: "Margin Actual, $ "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin Target, $ '
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c15df22-20e0-4f4e-b84e-4d4c589dca86
+		summarizeBy: sum
+		sourceColumn: "Margin Target, $ "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Q-ty, units'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 250f93d2-dd37-4d31-adfc-7f331dd4fa0f
+		summarizeBy: sum
+		sourceColumn: Q-ty, units
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 8e43fb8d-7be7-45a8-b67a-bbd0fe26835a
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Turnover
+		dataType: int64
+		formatString: #,0
+		lineageTag: 04d48004-78bd-4aa4-94d8-edb8636a3891
+		summarizeBy: sum
+		sourceColumn: Turnover
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Tornado Sales Actual and Target.xlsx"), null, true),
+				    Sales_Sheet = Source{[Item="Sales",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sales_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order ID", Int64.Type}, {"Sales channel", type text}, {"Product segment", type text}, {"Manager", type text}, {"Order Name", type text}, {"Customer", type text}, {"City", type text}, {"Margin Actual, $ ", Int64.Type}, {"Margin Target, $ ", Int64.Type}, {"Q-ty, units", Int64.Type}, {"Status", type text}, {"Turnover", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: ru-RU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_QueryOrder = ["Vert","Simple WF Set","MS Waterfall Set"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_f8a3501e-3ae8-4cee-8fcf-774665c56e21
+ref table Vert
+ref table 'Simple WF Set'
+ref table 'MS Waterfall Set'
+
+ref cultureInfo en-US
+

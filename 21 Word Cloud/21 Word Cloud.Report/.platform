@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "21 Word Cloud"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "21349af2-c243-4765-9487-f90619f19d70"
+  }
+}

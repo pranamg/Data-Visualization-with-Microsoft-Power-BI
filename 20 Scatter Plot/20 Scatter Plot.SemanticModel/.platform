@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "20 Scatter Plot"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "379fa62a-7ce1-4ee8-82d5-bae759df56aa"
+  }
+}

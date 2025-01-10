@@ -1,0 +1,38 @@
+relationship 628d72a0-3196-4a30-958f-c881885ddc8f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hierarchy.Start
+	toColumn: LocalDateTable_a11934fb-38b9-4545-a72e-8160498fc0e9.Date
+
+relationship ab197c28-e486-4354-bd4e-6878f15f6970
+	joinOnDateBehavior: datePartOnly
+	fromColumn: hierarchy.End
+	toColumn: LocalDateTable_ada9d7a4-492d-4227-8a72-66187fd775b2.Date
+
+relationship 8d812888-7d98-45d2-9822-10085e46b967
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Projects.Start
+	toColumn: LocalDateTable_d6f5b653-ede1-406d-803e-5abb25af8324.Date
+
+relationship f47cbe1f-f0f4-47aa-bed5-e2f86a9c2b95
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Projects.End
+	toColumn: LocalDateTable_f4acf16a-45a7-4ff5-8b50-f2a42ac2652d.Date
+
+relationship 44e15196-722b-4a82-a7b6-55ad8b8d30b9
+	fromColumn: Details.Project
+	toColumn: Projects.Project
+
+relationship 8477d0ad-c07a-413d-91b3-57e0a3388b02
+	fromColumn: hierarchy.Project
+	toColumn: Projects.Project
+
+relationship e724e08f-9de8-48a6-9159-b51df4c33f84
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Details.Start
+	toColumn: LocalDateTable_935b645b-f437-494f-a84b-73f9d86ff736.Date
+
+relationship 83abdabf-e421-484a-ac57-e9d76abf6848
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Details.End
+	toColumn: LocalDateTable_5b90325b-3aac-4c01-97b2-380c38ba9ba3.Date
+

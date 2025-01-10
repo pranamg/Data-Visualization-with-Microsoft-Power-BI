@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "23 AI based Visuals"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6d017354-564d-4608-969c-658c6ec8d7c4"
+  }
+}

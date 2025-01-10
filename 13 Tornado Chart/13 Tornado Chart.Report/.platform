@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "13 Tornado Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc4d623a-4d05-4fb3-9e0f-c7ca4d67b994"
+  }
+}

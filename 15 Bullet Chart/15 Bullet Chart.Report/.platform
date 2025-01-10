@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "15 Bullet Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5b5674ca-7b9b-4015-b26a-29d7d6bd0dc6"
+  }
+}

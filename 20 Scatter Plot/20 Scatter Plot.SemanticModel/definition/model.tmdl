@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Cycles"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Cycles
+ref table DateTableTemplate_4992bfca-ee83-4103-8f18-5da7c86150eb
+ref table LocalDateTable_135b5b30-1e8c-411b-8952-9b1aaadcf0d6
+
+ref cultureInfo en-US
+

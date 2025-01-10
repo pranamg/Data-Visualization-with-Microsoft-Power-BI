@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "16 Gantt Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7776e56a-029f-4a2a-b360-7e2c4c6e90dc"
+  }
+}

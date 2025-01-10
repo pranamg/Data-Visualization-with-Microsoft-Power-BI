@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "24 Radar and Aster Plot"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bc680c51-2a9b-48ae-a8be-095b8adf233a"
+  }
+}

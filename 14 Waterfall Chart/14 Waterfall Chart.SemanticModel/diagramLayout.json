@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1420.2387189837023,
+            "y": 17
+          },
+          "nodeIndex": "Vert",
+          "nodeLineageTag": "d0f3134b-9cc2-459a-b912-7cd5ca78dbb1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1998.2387189837023,
+            "y": 19
+          },
+          "nodeIndex": "MS Waterfall Set",
+          "nodeLineageTag": "3417f66c-5751-4adc-85a8-8d295146d528",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1714.2387189837023,
+            "y": 31
+          },
+          "nodeIndex": "Simple WF Set",
+          "nodeLineageTag": "936be0dc-b041-4f9f-8676-cf06e4bee838",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

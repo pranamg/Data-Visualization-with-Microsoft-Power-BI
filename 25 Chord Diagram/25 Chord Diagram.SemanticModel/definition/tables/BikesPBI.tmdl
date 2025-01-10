@@ -1,0 +1,41 @@
+table BikesPBI
+	lineageTag: 11d06425-acde-4300-8d32-7629f6e882e1
+
+	column Buy
+		dataType: string
+		lineageTag: 94f4a600-2166-44c6-ac6a-3043e645909e
+		summarizeBy: none
+		sourceColumn: Buy
+
+		annotation SummarizationSetBy = Automatic
+
+	column With
+		dataType: string
+		lineageTag: dc79f70f-666b-4514-bf39-f45568911c91
+		summarizeBy: none
+		sourceColumn: With
+
+		annotation SummarizationSetBy = Automatic
+
+	column Number
+		dataType: int64
+		formatString: 0
+		lineageTag: 8637ec5d-238f-4081-9eec-de9dcaa137e1
+		summarizeBy: sum
+		sourceColumn: Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BikesPBI = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\Chord data.xlsx"), null, true),
+				    BikesPBI_Sheet = Source{[Item="BikesPBI",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(BikesPBI_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Buy", type text}, {"With", type text}, {"Number", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

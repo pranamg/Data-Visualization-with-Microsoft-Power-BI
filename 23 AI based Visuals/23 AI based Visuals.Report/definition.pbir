@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../23 AI based Visuals.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

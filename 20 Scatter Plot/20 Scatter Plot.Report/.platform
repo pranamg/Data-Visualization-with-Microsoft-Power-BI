@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "20 Scatter Plot"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8ecf445e-a49b-4e13-8101-aba9a7b88cb5"
+  }
+}

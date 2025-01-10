@@ -1,0 +1,117 @@
+table Sales
+	lineageTag: c94cf5da-a229-46c7-957a-66b0683f1d29
+
+	column 'Order ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: df6b0bea-da3b-4d7c-938b-e7f598e9c22f
+		summarizeBy: count
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales channel'
+		dataType: string
+		lineageTag: 3382f085-eeb0-4346-8ca1-8e1a1e1d9018
+		summarizeBy: none
+		sourceColumn: Sales channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product segment'
+		dataType: string
+		lineageTag: dccd123a-218b-4c7a-982f-9cf14948f3e9
+		summarizeBy: none
+		sourceColumn: Product segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager
+		dataType: string
+		lineageTag: 26a09402-f10e-474c-8f70-79141de00f23
+		summarizeBy: none
+		sourceColumn: Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Name'
+		dataType: string
+		lineageTag: b9714cac-efa3-418e-adf2-7bde8ec69d54
+		summarizeBy: none
+		sourceColumn: Order Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 3b1e6f04-07fc-4dfd-8591-01d92cf65b41
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: bc2bb096-0f0f-4d1f-ac43-263300916033
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin Actual, $ '
+		dataType: int64
+		formatString: 0
+		lineageTag: 43560cc6-c208-48b5-9dd5-96a6988353d3
+		summarizeBy: sum
+		sourceColumn: "Margin Actual, $ "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margin Target, $ '
+		dataType: int64
+		formatString: 0
+		lineageTag: 877be42b-7cd5-443b-ad89-c34dee4d151a
+		summarizeBy: sum
+		sourceColumn: "Margin Target, $ "
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Q-ty, units'
+		dataType: int64
+		formatString: 0
+		lineageTag: 30bc8052-7faf-42d7-a7e6-001b21dd5218
+		summarizeBy: sum
+		sourceColumn: Q-ty, units
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 97717cae-6c8e-49a2-8885-11934d6492aa
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Turnover
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e669459-bbd9-4aee-8eda-0fb4c0e48a4a
+		summarizeBy: sum
+		sourceColumn: Turnover
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("\\Mac\Home\Documents\Excel files\13 Tornado Dataset.xlsx"), null, true),
+				    Sales_Sheet = Source{[Item="Sales",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sales_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order ID", Int64.Type}, {"Sales channel", type text}, {"Product segment", type text}, {"Manager", type text}, {"Order Name", type text}, {"Customer", type text}, {"City", type text}, {"Margin Actual, $ ", Int64.Type}, {"Margin Target, $ ", Int64.Type}, {"Q-ty, units", Int64.Type}, {"Status", type text}, {"Turnover", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

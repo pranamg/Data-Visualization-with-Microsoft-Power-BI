@@ -1,0 +1,29 @@
+{
+  "version": "1.3.2.1",
+  "author": {
+    "name": "Maxim Sedov",
+    "email": "maxim79135@gmail.com"
+  },
+  "resources": [
+    {
+      "resourceId": "rId0",
+      "sourceType": 5,
+      "file": "resources/Multi_target_KPI_dev.pbiviz.json"
+    }
+  ],
+  "visual": {
+    "guid": "Multi_target_KPI_dev",
+    "name": "Multi target KPI",
+    "displayName": "Multi target KPI",
+    "version": "1.3.2.1",
+    "description": "This card is designed to display the main indicator with several deviation indicators with advanced color formatting settings.",
+    "supportUrl": "https://data-2-speak.com/",
+    "gitHubUrl": "https://github.com/maxim79135/Multi-target-KPI",
+    "visualClassName": "CardKPI"
+  },
+  "metadata": {
+    "pbivizjson": {
+      "resourceId": "rId0"
+    }
+  }
+}

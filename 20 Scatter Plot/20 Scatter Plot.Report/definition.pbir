@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../20 Scatter Plot.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

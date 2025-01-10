@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "18 Multi target kpi Card"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "55954e7d-1eed-4713-bf5f-c920f44adfa6"
+  }
+}

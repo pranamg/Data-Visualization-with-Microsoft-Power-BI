@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "05 TreeMap"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0609ad71-a24d-4c08-a1f1-58febc4ec9e3"
+  }
+}

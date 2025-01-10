@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "15 Bullet Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ded673c1-4c49-40cf-b59e-3d98aeb06d7c"
+  }
+}

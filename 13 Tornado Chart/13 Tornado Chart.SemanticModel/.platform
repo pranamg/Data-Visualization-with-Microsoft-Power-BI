@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "13 Tornado Chart"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c5628e0a-0e63-492f-85c2-398f103ec3cf"
+  }
+}

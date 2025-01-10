@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "23 AI based Visuals"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a02b4e28-ec6a-4d26-84e9-c224d67e6807"
+  }
+}

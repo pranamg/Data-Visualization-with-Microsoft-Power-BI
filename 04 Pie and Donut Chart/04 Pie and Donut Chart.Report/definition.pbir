@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../04 Pie and Donut Chart.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

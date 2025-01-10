@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "10 How to put all together"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "33efc88f-6b14-4ce3-b746-c51cf5e8b4e4"
+  }
+}

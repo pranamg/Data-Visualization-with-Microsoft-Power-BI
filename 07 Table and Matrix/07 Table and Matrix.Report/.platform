@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "07 Table and Matrix"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "57029bca-4f82-423b-9053-58aa8b048e81"
+  }
+}

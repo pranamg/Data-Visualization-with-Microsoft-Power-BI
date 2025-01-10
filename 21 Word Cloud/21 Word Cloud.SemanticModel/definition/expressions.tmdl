@@ -1,0 +1,24 @@
+expression 'Errors in Cycles' =
+		let
+		Source = Cycles,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Date", "Country", "Product category", "Quantity", "Price per item", "Sales fact", "Sales plan", "State", "Product subcategory", "Manager", "Column11", "Column12"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Date", "Country", "Product category", "Quantity", "Price per item", "Sales fact", "Sales plan", "State", "Product subcategory", "Manager", "Column11", "Column12"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Column11", "Column12"})
+		in
+		  #"Removed Columns"
+	lineageTag: ea5e48a2-0bad-4a23-8ff8-0152af718e59
+	queryGroup: 'Query Errors - 24 10 2022 12:03:53'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
