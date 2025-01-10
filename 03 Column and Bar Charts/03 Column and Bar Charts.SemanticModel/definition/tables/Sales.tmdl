@@ -2,7 +2,7 @@ table Sales
 	lineageTag: e23e3884-bf9e-41d2-ba0d-5b03d9d3c334
 
 	measure 'plan %' =
-			
+
 			VAR __BASELINE_VALUE = SUM('Sales'[Sales plan])
 			VAR __VALUE_TO_COMPARE = SUM('Sales'[Sales fact])
 			RETURN

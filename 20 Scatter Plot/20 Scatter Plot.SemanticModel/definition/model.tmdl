@@ -12,7 +12,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table Cycles
 ref table DateTableTemplate_4992bfca-ee83-4103-8f18-5da7c86150eb

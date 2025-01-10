@@ -12,7 +12,7 @@ annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
 annotation PBI_QueryOrder = ["Vert","Simple WF Set","MS Waterfall Set"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table DateTableTemplate_f8a3501e-3ae8-4cee-8fcf-774665c56e21
 ref table Vert

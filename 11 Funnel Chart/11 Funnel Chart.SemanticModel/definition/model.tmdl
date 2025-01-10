@@ -12,7 +12,7 @@ annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
 annotation PBI_QueryOrder = ["Stages"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table DateTableTemplate_cc4cff7a-2112-4664-a671-e1ef83c9a0e6
 ref table Stages

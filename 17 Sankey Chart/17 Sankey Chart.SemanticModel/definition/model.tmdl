@@ -12,7 +12,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table 'In exp budget'
 ref table DateTableTemplate_2d2dd0b9-bec0-4bfd-b03b-54a751a8e510

@@ -22,7 +22,7 @@ annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
 annotation PBI_QueryOrder = ["Cycles","Errors in Cycles","Errors in Cycles (2)"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table DateTableTemplate_fc4dda38-39d5-4d52-8e90-c602af8679c7
 ref table Cycles
