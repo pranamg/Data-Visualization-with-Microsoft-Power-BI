@@ -1,29 +1,45 @@
 <#
 .SYNOPSIS
-    Updates PBI_ProTooling annotation in all model.tmdl files
+    Updates content in files matching specified pattern
 .DESCRIPTION
-    Finds all model.tmdl files and updates the PBI_ProTooling annotation
-    from ["DevMode"] to ["DevMode","TMDL-Extension"]
-.NOTES
-    Version: 1.0
+    Finds all files matching the specified pattern and performs search/replace operation
+.PARAMETER FilePattern
+    Pattern to match files (e.g., "model.tmdl")
+.PARAMETER SearchPattern
+    Text pattern to search for
+.PARAMETER ReplacePattern
+    Text to replace matches with
+.EXAMPLE
+    .\Update-TmdlAnnotations.ps1 -FilePattern "model.tmdl" -SearchPattern 'annotation PBI_ProTooling = ["DevMode"]' -ReplacePattern 'annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]'
 #>
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$FilePattern,
+
+    [Parameter(Mandatory=$true)]
+    [string]$SearchPattern,
+
+    [Parameter(Mandatory=$true)]
+    [string]$ReplacePattern
+)
 
 # Get parent directory path
 $parentPath = Split-Path -Parent $PSScriptRoot
 
-# Get all model.tmdl files recursively from parent directory
-$files = Get-ChildItem -Path $parentPath -Filter "model.tmdl" -Recurse
+# Get all matching files recursively from parent directory
+$files = Get-ChildItem -Path $parentPath -Filter $FilePattern -Recurse
 $updateCount = 0
 
-Write-Host "Starting TMDL annotation update process..."
+Write-Host "Starting content update process..."
+Write-Host "Looking for files matching: $FilePattern"
 
 foreach ($file in $files) {
     try {
         # Read file content
         $content = Get-Content $file.FullName -Raw
 
-        # Replace the annotation
-        $newContent = $content -replace 'annotation PBI_ProTooling = \["DevMode"\]', 'annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]'
+        # Replace the content
+        $newContent = $content -replace $SearchPattern, $ReplacePattern
 
         # Write back to file if changes were made
         if ($content -ne $newContent) {
