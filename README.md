@@ -8,29 +8,49 @@ This repository contains various `.pbix` files related to different types of cha
 
 ## Contents
 
-- `03 Column and Bar Charts.pbix`: Demonstrates how to create and use column and bar charts.
-- `04 Pie and Donut Chart.pbix`: Demonstrates how to create and use pie and donut charts.
-- `05 TreeMap.pbix`: Demonstrates how to create and use treemaps.
-- `06 Timeline Charts.pbix`: Demonstrates how to create and use timeline charts.
-- `07 Table and Matrix.pbix`: Demonstrates how to create and use tables and matrix visualizations.
-- `08 KPI Cards.pbix`: Demonstrates how to create and use KPI cards.
-- `09 Slicers.pbix`: Demonstrates how to create and use slicers.
-- `10 How to put all together.pbix`: Demonstrates how to combine different visualizations into a cohesive report.
-- `11 Funnel Chart.pbix`: Demonstrates how to create and use funnel charts.
-- `12 Maps.pbix`: Demonstrates how to create and use map visualizations.
-- `13 Tornado Chart.pbix`: Demonstrates how to create and use tornado charts.
-- `14 Waterfall Chart.pbix`: Demonstrates how to create and use waterfall charts.
-- `15 Bullet Chart.pbix`: Demonstrates how to create and use bullet charts.
-- `16 Gantt Chart.pbix`: Demonstrates how to create and use Gantt charts.
-- `17 Sankey Chart.pbix`: Demonstrates how to create and use Sankey charts.
-- `18 Multi target kpi Card.pbix`: Demonstrates how to create and use multi-target KPI cards.
-- `19 Gauges.pbix`: Demonstrates how to create and use gauge visualizations.
-- `20 Scatter Plot.pbix`: Demonstrates how to create and use scatter plots.
-- `21 Word Cloud.pbix`: Demonstrates how to create and use word clouds.
-- `22 Decomposition Tree.pbix`: Demonstrates how to create and use decomposition trees.
-- `23 AI based Visuals.pbix`: Demonstrates how to create and use AI-based visuals.
-- `24 Radar and Aster Plot.pbix`: Demonstrates how to create and use radar and aster plots.
-- `25 Chord Diagram.pbix`: Demonstrates how to create and use chord diagrams.
+### Basic Charts
+
+- `charts/basic/03 Column and Bar Charts.pbix`
+- `charts/basic/04 Pie and Donut Chart.pbix`
+- `charts/basic/20 Scatter Plot.pbix`
+
+### Advanced Charts
+
+- `charts/advanced/05 TreeMap.pbix`
+- `charts/advanced/11 Funnel Chart.pbix`
+- `charts/advanced/13 Tornado Chart.pbix`
+- `charts/advanced/14 Waterfall Chart.pbix`
+- `charts/advanced/15 Bullet Chart.pbix`
+- `charts/advanced/17 Sankey Chart.pbix`
+- `charts/advanced/24 Radar and Aster Plot.pbix`
+- `charts/advanced/25 Chord Diagram.pbix`
+
+### Time-based Visualizations
+
+- `charts/timeline/06 Timeline Charts.pbix`
+- `charts/timeline/16 Gantt Chart.pbix`
+
+### Tables and Metrics
+
+- `visualizations/07 Table and Matrix.pbix`
+- `visualizations/08 KPI Cards.pbix`
+- `visualizations/18 Multi target kpi Card.pbix`
+- `visualizations/19 Gauges.pbix`
+
+### Interactive Elements
+
+- `interactivity/09 Slicers.pbix`
+- `interactivity/22 Decomposition Tree.pbix`
+
+### Special Visualizations
+
+- `visualizations/12 Maps.pbix`
+- `visualizations/21 Word Cloud.pbix`
+- `visualizations/23 AI based Visuals.pbix`
+
+### Complete Examples
+
+- `examples/10 How to put all together.pbix`
 
 ## Learning Objectives
 
